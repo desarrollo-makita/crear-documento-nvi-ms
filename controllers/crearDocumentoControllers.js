@@ -15,7 +15,7 @@ async function crearDocumento(req, res) {
     let result;
     try {
         // Conecta a la base de datos
-        await connectToDatabase('DTEBdQMakita');
+        await connectToDatabase('BdQMakita');
     
         const { pedido: Correlativo, tipoDocumento: TipoDocumento, codigo_posto: RutCliente } = oredenPedido;
         const request = new sql.Request();
