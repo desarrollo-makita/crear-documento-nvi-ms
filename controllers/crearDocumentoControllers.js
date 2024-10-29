@@ -23,17 +23,19 @@ async function crearDocumento(req, res) {
     const {
       pedido: Correlativo,
       tipoDocumento: TipoDocumento,
-      codigo_posto: RutCliente,
+      codigo_posto,
     } = oredenPedido;
 
-    // Coloca un guion antes del último carácter de RutCliente
-    const RutClienteFormatted = `${RutCliente.slice(0, -1)}-${RutCliente.slice(-1)}`;
+   // Solo agrega el guion si `codigo_posto` no tiene uno
+          const RutCliente = codigo_posto.trim().includes('-') 
+          ? codigo_posto 
+          : `${codigo_posto.slice(0, -1)}-${codigo_posto.slice(-1)}`;
 
-    console.log({
-      Correlativo,
-      TipoDocumento,
-      RutCliente: RutClienteFormatted,
-    });
+console.log({
+Correlativo,
+TipoDocumento,
+RutCliente,
+});
     const request = new sql.Request();
     // Ejecuta el procedimiento almacenado con los parámetros
     result = await request.query`
