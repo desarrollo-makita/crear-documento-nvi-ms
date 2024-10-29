@@ -26,12 +26,14 @@ async function crearDocumento(req, res) {
       codigo_posto,
     } = oredenPedido;
 
-   // Solo agrega el guion si `codigo_posto` no tiene uno
-          const RutCliente = codigo_posto.trim().includes('-') 
-          ? codigo_posto 
-          : `${codigo_posto.slice(0, -1)}-${codigo_posto.slice(-1)}`;
+    let rutfor = codigo_posto.trim();
 
-console.log("Logogogogoogogogoogog",{
+   // Solo agrega el guion si `codigo_posto` no tiene uno
+          const RutCliente = rutfor.trim().includes('-') 
+          ? rutfor 
+          : `${rutfor.slice(0, -1)}-${rutfor.slice(-1)}`;
+
+console.log("log ru formateado",{
 Correlativo,
 TipoDocumento,
 RutCliente,
