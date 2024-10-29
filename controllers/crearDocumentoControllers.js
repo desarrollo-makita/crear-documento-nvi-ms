@@ -12,7 +12,7 @@ const moment = require("moment");
  * @param {Object} res - El objeto de respuesta HTTP.
  */
 async function crearDocumento(req, res) {
-  logger.info(`Iniciamos la funcion creaDocumento nota de venta interna`);
+  logger.info(`Iniciamos la funcion creaDocumento nota de venta interna ${req.body}`);
 
   const oredenPedido = req.body;
   let result;
@@ -25,6 +25,15 @@ async function crearDocumento(req, res) {
       tipoDocumento: TipoDocumento,
       codigo_posto: RutCliente,
     } = oredenPedido;
+
+    // Coloca un guion antes del último carácter de RutCliente
+    const RutClienteFormatted = `${RutCliente.slice(0, -1)}-${RutCliente.slice(-1)}`;
+
+    console.log({
+      Correlativo,
+      TipoDocumento,
+      RutCliente: RutClienteFormatted,
+    });
     const request = new sql.Request();
     // Ejecuta el procedimiento almacenado con los parámetros
     result = await request.query`
