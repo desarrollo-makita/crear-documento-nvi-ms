@@ -31,7 +31,7 @@ async function crearDocumento(req, res) {
           ? codigo_posto 
           : `${codigo_posto.slice(0, -1)}-${codigo_posto.slice(-1)}`;
 
-console.log({
+console.log("Logogogogoogogogoogog",{
 Correlativo,
 TipoDocumento,
 RutCliente,
