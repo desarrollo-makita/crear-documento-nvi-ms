@@ -18,7 +18,7 @@ async function crearDocumento(req, res) {
   let result;
   try {
     // Conecta a la base de datos
-    await connectToDatabase("DTEBdQMakita");
+    await connectToDatabase("BdQMakita");
 
     const {
       pedido: Correlativo,
